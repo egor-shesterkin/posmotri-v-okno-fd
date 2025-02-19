@@ -236,6 +236,7 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
+  display: flex;
   align-self: center;
   width: 19px;
   height: 19px;
@@ -244,10 +245,10 @@ ol {
 
 input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   content: "";
-  position: absolute;
   width: 15px;
   height: 15px;
-  margin: 1px;
+  margin-top: 1px;
+  margin-left: 1px;
   background-color: #fff;
 }
 
