@@ -45,7 +45,6 @@ ol {
   grid-template-columns: 711px 399px;
   column-gap: 30px;
   min-width: 1140px;
-  min-height: 534px;
   padding: 18vh 3vw;
 }
 
@@ -55,7 +54,6 @@ ol {
   justify-content: end;
   gap: 16px;
   max-width: 711px;
-  min-height: 534px;
 }
 
 .result__video-container {
@@ -64,105 +62,15 @@ ol {
   flex-direction: column;
 }
 
-.search-form {
-  display: flex;
-  justify-content: space-between;
-}
-
-.search-form__checkbox-list {
-  display: flex;
-  gap: 15px;
-}
-
-.content__details {
-  display: flex;
-  flex-direction: column;
-  justify-self: flex-end;
-  gap: 26px;
-  align-self: flex-start;
-  min-width: 399px;
-  min-height: 534px;
-  padding-bottom: 2px;
-}
-
-.content__list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 399px;
-  cursor: url(../images/cursor.png), pointer;
-}
-
-.content__list-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-height: 298px;
-  overflow: auto;
-}
-
-.content__video-card {
-  display: flex;
-  cursor: url(../images/cursor.png), pointer;
-}
-
-.content__video-card-thumbnail {
-  max-width: 194px;
-  max-height: 103px;
-  object-fit: contain;
+video {
+  height: 386px;
+  object-fit: cover;
   object-position: center;
 }
 
-.content__video-card-description-container {
-  flex-grow: 1;
-}
-
-.content__video-card-title {
-  max-width: 196px;
-  max-height: 103px;
-  overflow: hidden;
-  color: #fff;
-  font-family: "Oswald", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  font-style: normal;
-  line-height: 100%; /* 30px */
-  text-transform: uppercase;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.content__card-link {
-  text-decoration: none;
-}
-
-.content__video-card-description {
-  max-width: 196px;
-  max-height: 17px;
-  overflow: hidden;
-  color: #fff;
-  font-weight: 400;
-  line-height: 16.2px; /* 90% */
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.content__video-card:active {
-  background-color: rgba(84, 80, 80, 1);
-}
-
-.content__video-card:focus {
-  outline: none;
-}
-
-.content__video-card:focus-visible {
-  outline: 1px solid #fff;
-}
-
-.search-form__fieldset-title {
-  font-weight: 400;
-  font-size: 18px;
+.search-form {
+  display: flex;
+  justify-content: space-between;
 }
 
 .search-form__fieldset {
@@ -174,17 +82,9 @@ ol {
   border: 0;
 }
 
-.title {
-  max-width: 259px;
-  max-height: 210px;
-  font-family: "Oswald", sans-serif;
-  font-size: 75px;
-  line-height: 94%; /* 70.5px */
-  text-transform: uppercase;
-}
-
-.content__accent {
-  color: #545050;
+.search-form__fieldset-title {
+  font-weight: 400;
+  font-size: 18px;
 }
 
 .search-form__label {
@@ -192,6 +92,29 @@ ol {
   gap: 5px;
   cursor: url(../images/cursor.png), pointer;
   appearance: none;
+}
+
+.search-form__label:hover > span {
+  text-decoration: underline;
+}
+
+.search-form__label:focus {
+  outline: none;
+}
+
+.search-form__label:has(:not(:active):focus-visible) {
+  outline: 1px #fff solid;
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  inline-size: 1px;
+  block-size: 1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .search-form__textfield {
@@ -213,10 +136,6 @@ ol {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.search-form__label:focus {
-  outline: none;
-}
-
 .search-form__textfield:active {
   border-right: 1px solid #fff;
   border-left: 1px solid #fff;
@@ -226,13 +145,13 @@ ol {
   outline: none;
 }
 
-.search-form__checkbox {
-  outline: none;
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
 }
 
-.search-form__label:has(:not(:active):focus-visible) {
-  outline: 1px #fff solid;
-  outline-offset: 2px;
+.search-form__checkbox {
+  outline: none;
 }
 
 .search-form__pseudo-checkbox {
@@ -250,18 +169,6 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   margin-top: 1px;
   margin-left: 1px;
   background-color: #fff;
-}
-
-.search-form__label:hover > span {
-  text-decoration: underline;
-}
-
-.content__list-item:hover {
-  text-decoration: underline;
-}
-
-.content__list-item {
-  padding: 0 3px 0 3px;
 }
 
 .button {
@@ -304,21 +211,116 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   min-height: 34px;
 }
 
+.content__details {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-end;
+  gap: 26px;
+  align-self: flex-start;
+  min-width: 399px;
+  padding-bottom: 2px;
+}
+
+.title {
+  max-width: 259px;
+  font-family: "Oswald", sans-serif;
+  font-size: 75px;
+  line-height: 94%; /* 70.5px */
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__list-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 390px;
+  height: 298px;
+  overflow: auto;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 399px;
+  cursor: url(../images/cursor.png), pointer;
+}
+
+.content__list-item {
+  padding: 0 3px 0 3px;
+}
+
+.content__list-item:hover {
+  text-decoration: underline;
+}
+
+.content__card-link {
+  text-decoration: none;
+}
+
+.content__card-link:focus-visible {
+  display: block;
+  outline: 1px solid #fff;
+}
+
+.content__card-link_current {
+  display: block;
+  background-color: #545050;
+}
+
+.content__video-card {
+  display: flex;
+  cursor: url(../images/cursor.png), pointer;
+}
+
+.content__video-card:active {
+  background-color: rgba(84, 80, 80, 1);
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+}
+
+.content__video-card-title {
+  max-width: 196px;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 100%; /* 30px */
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.content__video-card-description {
+  max-width: 196px;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 400;
+  line-height: 16.2px; /* 90% */
+  text-overflow: ellipsis;
+}
+
+.content__video-card-thumbnail {
+  width: 194px;
+  height: 103px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .more-button {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 34px;
-}
-
-.visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  inline-size: 1px;
-  block-size: 1px;
-  clip-path: inset(50%);
-  white-space: nowrap;
 }
 
 /* Кастомный скроллбар */
